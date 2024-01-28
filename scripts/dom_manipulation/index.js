@@ -1,6 +1,9 @@
 // IMPORT
 import { User } from '../classi/userClass.js'
 import { fetchJSONUsers } from '../fetchJSON/fetch_utenti_mockup.js'
+import { querySearch } from '../fetchAPI/querySearchDeezer.js'
+import { catchArtist } from '../fetchAPI/fetchArtistObg.js'
+import { catchAlbum } from '../fetchAPI/fetchAlbumObg.js'
 
 // VARIABILI UNICHE DELLA CLASSE
 let currentUser = "User"
@@ -131,7 +134,6 @@ const setLoginForm = function(arrayUser) { //Imposta la navBar col form per l'is
     const input = document.createElement('button')
     input.className = 'btn btn-outline-primary text-dark rounded-pill p-1 px-3 m-2'
     const signIn = document.createElement('a')
-    signIn.addEventListener("click", lanciaModaleSignIn)
     signIn.setAttribute('href', '#')
     signIn.setAttribute('data-bs-toggle', 'modal')
     signIn.setAttribute('data-bs-target', '#modalLogin')
@@ -204,3 +206,6 @@ settaDirezioneDropDown() // Modifica il pulsante per il login, necessario usare 
 .catch(error => {
     console.error('Errore durante il caricamento degli utenti:', error)
 })
+
+//querySearch("Avenged se")
+catchAlbum("6715844")

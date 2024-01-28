@@ -1,7 +1,7 @@
 import { Album } from '../classi/albumClass.js'
 import { Artist } from '../classi/artistClass.js'
 import { Genre } from '../classi/genreClass.js'
-import { Track } from '../tracksClass.js'
+import { Track } from '../classi/tracksClass.js'
 const catchAlbum = function (queryAlbumID) {
     return fetch("https://striveschool-api.herokuapp.com/api/deezer/album/" + queryAlbumID, {
         headers: {}
@@ -14,6 +14,7 @@ const catchAlbum = function (queryAlbumID) {
             }
         })
         .then((data) => {
+            console.log(data)
             let contributorsArray = []
 
             for (let indexContributors = 0; indexContributors < data.contributors.length; indexContributors++) {
@@ -59,8 +60,18 @@ const catchAlbum = function (queryAlbumID) {
                 arrayTracks.push(newTrack)
 
             }
+            let generi = []
 
-            let heroAlbumObj = new Album(
+            for (let omicron = 0; omicron < data.genre_id.length; omicron++) {
+                let newGenre = new Genre(
+                    data.genres[omicron].id, // ID
+                    data.genres[omicron].name, // Nome
+                    data.genres[omicron].picture // Picture
+                )
+                generi.push(data.genre_id[omicron])
+            }
+
+            let outputAlbum = new Album(
                 data.artist, // Artist
                 data.available, // Boolean
                 contributorsArray, // Array di Artist
@@ -74,7 +85,7 @@ const catchAlbum = function (queryAlbumID) {
                 data.explicit_content_lyrics, // Numero?
                 data.explicit_lyrics, // Numero?
                 data.fans, // Numero fans
-                data.genre_id,
+                generi, //Array di generi
                 data.genres, // Array di Genre
                 data.id,
                 data.label, // Etichetta discografica
@@ -89,7 +100,7 @@ const catchAlbum = function (queryAlbumID) {
                 arrayTracks, // Array Track
                 data.upc // UPC
             )
-            return heroAlbumObj
+            return outputAlbum
         })
 
         .catch((err) => {

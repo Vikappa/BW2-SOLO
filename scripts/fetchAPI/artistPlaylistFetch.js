@@ -1,4 +1,3 @@
-
 import { Track } from '../classi/tracksClass.js'
 
 const artistPlaylistFetch = function (artistId) {
@@ -11,6 +10,7 @@ const artistPlaylistFetch = function (artistId) {
 
         })
         .then((data) => {
+            console.log(data)
             let arrayTracks = []
 
             for (let indexTracks = 0; indexTracks < data.data.length; indexTracks++) {

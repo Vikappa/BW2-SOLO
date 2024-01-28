@@ -19,3 +19,15 @@ a{
 .customLiHover:hover{
 color: black !important;
 }
+
+#modalLogin .modal-content{
+    color: white;
+    background-color: var(--bs-tertiary) !important;
+}
+
+#modalLogin .modal-content .btn-check:not(:checked) + .btn-outline-secondary:hover {
+    border: 0;
+    filter:brightness(200%);
+    background-color: var();
+    background-color: var(--bs-tertiary);
+}

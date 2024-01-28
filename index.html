@@ -49,47 +49,31 @@
     </div>
   </main>
 
-  <div class="modal fade" tabindex="-1" id="modalLogin">
+  <div class="modal fade bg" tabindex="-1" id="modalLogin">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
+      <div class="modal-content p-0">
+        <div class="modal-header" >
           <h5 class="modal-title">Benvenuto!</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form>
-          <div class="modal-body">
+          <div class="modal-body p-1">
             <!-- Input per il nome -->
             <div class="mb-3">
-              <label for="nomeUtente" class="form-label">Nome</label>
-              <input type="text" class="form-control" id="nomeUtente" required>
+              <label for="nomeUtente" class="form-label p-1 m-0">Nome</label>
+              <input type="text" class="form-control" id="nomeNuovoUtente" required>
             </div>
             
             <!-- Input per URL immagine del profilo -->
             <div class="mb-3">
-              <label for="urlImmagineProfilo" class="form-label">URL Immagine Profilo</label>
+              <label for="urlImmagineProfilo" class="form-label">URL Immagine Profilo <span style="font-size: .74rem;" class="my-0 text-secondary">(facoltativo)</span></label>
               <input type="url" class="form-control" id="urlImmagineProfilo">
             </div>
   
             <!-- Button Group per le scelte -->
-            <div class="mb-3">
-              <label class="form-label">Seleziona almeno 3 opzioni:</label>
-              <div id="buttonGroupScelte" role="group" aria-label="Scelte obbligatorie" class="btn-group">
-                <input type="checkbox" class="btn-check" id="scelta1" autocomplete="off" required>
-                <label class="btn btn-outline-primary" for="scelta1">Scelta 1</label>
-  
-                <input type="checkbox" class="btn-check" id="scelta2" autocomplete="off" required>
-                <label class="btn btn-outline-primary" for="scelta2">Scelta 2</label>
-  
-                <input type="checkbox" class="btn-check" id="scelta3" autocomplete="off" required>
-                <label class="btn btn-outline-primary" for="scelta3">Scelta 3</label>
-  
-                <input type="checkbox" class="btn-check" id="scelta4" autocomplete="off">
-                <label class="btn btn-outline-primary" for="scelta4">Scelta 4</label>
-  
-                <input type="checkbox" class="btn-check" id="scelta5" autocomplete="off">
-                <label class="btn btn-outline-primary" for="scelta5">Scelta 5</label>
-              </div>
-            </div>
+            
+
+            
           </div>
           <div class="modal-footer">
             <button type="submit" class="btn btn-primary">Conferma</button>

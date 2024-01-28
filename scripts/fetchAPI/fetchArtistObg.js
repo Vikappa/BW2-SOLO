@@ -16,6 +16,7 @@ const catchArtist = function (queryArtistID) {
             }
         })
         .then((data) => {
+            console.log(data)
             let id = data.id
             let link = data.link
             let name = data.name

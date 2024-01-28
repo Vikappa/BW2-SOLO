@@ -3,20 +3,21 @@ import { Artist } from '../classi/artistClass.js'
 import { Genre } from '../classi/genreClass.js'
 import { Track } from '../classi/tracksClass.js'
 // RITORNA UN ARRAY DI MASSIMO 25 OGGETTI TRACK
-const searchAlbum = function (querySearch) {
+const querySearch = function (stringRicerca) {
     return new Promise((resolve, reject) => {
-        fetch("https://striveschool-api.herokuapp.com/api/deezer/search?q=" + querySearch, {
+        fetch("https://striveschool-api.herokuapp.com/api/deezer/search?q=" + stringRicerca, {
             headers: {}
         })
             .then(response => {
                 if (response.ok) {
                     return response.json();
                 } else {
-                    throw new Error('Errore nella chiamata');
+                    throw new Error('Errore nella chiamata della ricerca')
                 }
             })
             .then(data => {
-                let arrayRitorno = [];
+                console.log(data)
+                let arrayRitorno = []
                 for (let index = 0; index < data.data.length; index++) {
                     let newAlbum = {
                         cover: data.data[index].album.cover,
@@ -61,14 +62,14 @@ const searchAlbum = function (querySearch) {
                         data.data[index].title_short,
                         data.data[index].title_version,
                     )
-                    arrayRitorno.push(newTrack);
+                    arrayRitorno.push(newTrack)
                 }
-                resolve(arrayRitorno);
+                resolve(arrayRitorno)
             })
             .catch(err => {
-                console.log(err);
-                reject(err);
-            });
-    });
-};
-export { searchAlbum }
+                console.log(err)
+                reject(err)
+            })
+    })
+}
+export { querySearch }

@@ -1,5 +1,5 @@
 class User {
-    constructor(nome, img, arrayArtistiPiaciuti = [], arrayTrackPiaciute = [], arrayUltimeRicerche = [], arrayAlbumVisualizzati = [], arrayPlaylistPersonali = []) {
+    constructor(nome, img, arrayArtistiPiaciuti = [], arrayTrackPiaciute = [], arrayUltimeRicerche = [], arrayAlbumVisualizzati = [], arrayPlaylistPersonali = [], favGenes= []) {
         this.nome = nome
         this.img = img
         if (!img) {
@@ -10,6 +10,7 @@ class User {
         this.arrayUltimeRicerche = arrayUltimeRicerche
         this.arrayAlbumVisualizzati = arrayAlbumVisualizzati
         this.arrayPlaylistPersonali = arrayPlaylistPersonali
+        this.favGenes = favGenes
     }
 }
 

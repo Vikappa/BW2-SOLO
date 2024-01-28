@@ -1,5 +1,70 @@
 class Album {
-    constructor(artist, available, contributors = [], cover, cover_big,
+
+    coloreMedio() {
+        console.log('prova')
+    }
+
+    trovaGenerePerId(id){
+        switch(id) {
+          case 0:
+            return "Tutti";
+          case 132:
+            return "Pop";
+          case 116:
+            return "Rap/Hip Hop";
+          case 122:
+            return "Reggaeton";
+          case 152:
+            return "Rock";
+          case 113:
+            return "Dance";
+          case 165:
+            return "R&B";
+          case 85:
+            return "Alternative";
+          case 106:
+            return "Electro";
+          case 466:
+            return "Folk";
+          case 144:
+            return "Reggae";
+          case 129:
+            return "Jazz";
+          case 84:
+            return "Country";
+          case 67:
+            return "Salsa";
+          case 98:
+            return "Classica";
+          case 173:
+            return "Film/Videogiochi";
+          case 464:
+            return "Metal";
+          case 169:
+            return "Soul & Funk";
+          case 95:
+            return "Bambini";
+          case 153:
+            return "Blues";
+          case 71:
+            return "Cumbia";
+          case 2:
+            return "Musica Africana";
+          case 16:
+            return "Musica Asiatica";
+          case 75:
+            return "Musica Brasiliana";
+          case 81:
+            return "Musica Indiana";
+          case 197:
+            return "Musica latina";
+          // Aggiungi altri casi qui se necessario
+          default:
+            return "Genere non trovato";
+        }
+      }
+      
+      constructor(artist, available, contributors = [], cover, cover_big,
         cover_medium, cover_small, cover_xl, duration, explicit_content_cover,
         explicit_content_lyrics, explicit_lyrics, fans, genre_id, genres, id, label,
         link, md5_image, nb_tracks, record_type, release_date, share, title, tracklist,
@@ -34,11 +99,6 @@ class Album {
         this.type = type // Tipo
         this.upc = upc // ???
     }
-
-    coloreMedio() {
-        console.log('prova')
-    }
-
 }
 
 export { Album }
