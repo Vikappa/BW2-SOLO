@@ -1,0 +1,33 @@
+@keyframes nomeAnimazione {
+  0% {
+    /* Stile degli elementi al 0% di avanzamento /
+      property: valore;
+      / Aggiungi altre proprietà e valori desiderati /
+    }
+    50% {
+      / Stile degli elementi al 50% di avanzamento /
+      property: valore;
+      / Aggiungi altre proprietà e valori desiderati /
+    }
+    100% {
+      / Stile degli elementi al 100% di avanzamento /
+      property: valore;
+      / Aggiungi altre proprietà e valori desiderati */
+  }
+}
+
+@keyframes closing {
+  0% {
+    width: 15%;
+  }
+
+  99% {
+    opacity: 1;
+  }
+
+  100% {
+    display: none;
+    opacity: 0;
+    width: 0%
+  }
+}
