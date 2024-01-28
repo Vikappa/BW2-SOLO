@@ -4,7 +4,9 @@ import { fetchJSONUsers } from '../fetchJSON/fetch_utenti_mockup.js'
 
 // VARIABILI UNICHE DELLA CLASSE
 let currentUser = "User"
-let loadedUsers = []
+let loadedUsers = [] // Utenti da JSON
+let storagedUsers = [] // Utenti da LocalStorage
+let dinamicUsers = [] //Utenti da JSON + utenti da localstorage
 const albumDaSuggerire = []
 const artistiDaSuggerire = []
 const playstDaSuggerire = []
@@ -23,10 +25,31 @@ const settaDirezioneDropDown = function () { // Imposta la direzione del dropdow
     }
 }
 
+const registraUtente = function() { // Registra un nuovo utente in localstorage e lancia il metodo login con parametro il nuovo utente
+//Aggiungo il nuovo utente a storagedUsers e lo setto in localstorage
+const nomeNuovoUtente = document.getElementById('nomeNuovoUtente').value
+if(isValidUser(nomeNuovoUtente)){
+    const nuovoUtente = new User(nomeNuovoUtente)
+    storagedUsers.push(nuovoUtente)
+    localStorage.setItem('users', JSON.stringify(storagedUsers))
+    login(nuovoUtente)
+}
+}   
+
+const lanciaModaleSignIn = function() { 
+
+}
 
 
 // UTILITY
 function isValidUser(userValue) {
+
+    for (let i = 0; i < dinamicUsers.length; i++) {
+        if (dinamicUsers[i].nome === userValue) {
+            return true
+        }
+    }   
+
     if(userValue !== "User" && userValue === true && userValue !== "login"){
         return true
     } else {
@@ -56,18 +79,19 @@ const setLoginForm = function(arrayUser) { //Imposta la navBar col form per l'is
         button.appendChild(icon)
         return button
     }
-const prevButton = document.createElement('button')
-prevButton.setAttribute('type', 'button')
-prevButton.className = 'btn btn-outline-secondary p-1 rounded-circle mx-3 '
-const nextButton = document.createElement('button')
-nextButton.setAttribute('type', 'button')
-nextButton.className = 'btn btn-outline-secondary p-1 rounded-circle mx-3 '
-const innerPrev = document.createElement('i')
-const innerNext = document.createElement('i')
-innerPrev.innerHTML = `<i class="bi bi-chevron-left p-1 m-0 "></i>`
-innerNext.innerHTML = `<i class="bi bi-chevron-right p-1 m-0 "></i>`
-prevButton.appendChild(innerPrev)
-nextButton.appendChild(innerNext)
+
+    const prevButton = document.createElement('button')
+    prevButton.setAttribute('type', 'button')
+    prevButton.className = 'btn btn-outline-secondary p-1 rounded-circle mx-3 '
+    const nextButton = document.createElement('button')
+    nextButton.setAttribute('type', 'button')
+    nextButton.className = 'btn btn-outline-secondary p-1 rounded-circle mx-3 '
+    const innerPrev = document.createElement('i')
+    const innerNext = document.createElement('i')
+    innerPrev.innerHTML = `<i class="bi bi-chevron-left p-1 m-0 "></i>`
+    innerNext.innerHTML = `<i class="bi bi-chevron-right p-1 m-0 "></i>`
+    prevButton.appendChild(innerPrev)
+    nextButton.appendChild(innerNext)
 
     buttonDiv.appendChild(prevButton)
     buttonDiv.appendChild(nextButton)
@@ -76,7 +100,7 @@ nextButton.appendChild(innerNext)
 
     const dropdownDiv = document.createElement('div')
     dropdownDiv.className = 'p-1 d-flex align-items-center justify-content-center dropstart'
-dropdownDiv.id = 'navDropLogin'
+    dropdownDiv.id = 'navDropLogin'
     const dropdownButton = document.createElement('button')
     dropdownButton.setAttribute('type', 'button')
     dropdownButton.className = 'btn btn-outline-light rounded-pill p-1 px-3 col- d-flex align-items-center justify-content-center gap-1 text-align-start'
@@ -97,29 +121,24 @@ dropdownDiv.id = 'navDropLogin'
     const dropdownMenu = document.createElement('ul')
     dropdownMenu.className = 'dropdown-menu dropdown-menu-login p-1 rounded-3'
 
-    
 
     const listItemInputDiv = document.createElement('li')
 
 
     const inputDiv = document.createElement('div')
-    inputDiv.className = 'd-flex align-items-center'
+    inputDiv.className = 'd-flex'
 
-    const input = document.createElement('input')
-    input.className = 'form-control form-control-sm'
-    input.setAttribute('type', 'text')
-    input.setAttribute('placeholder', 'Nome utente')
-    input.setAttribute('aria-label', '.form-control-sm example')
-
-    const loginButton = document.createElement('button')
-    loginButton.setAttribute('type', 'button')
-    loginButton.className = 'btn btn-sm btn-primary text-light m-0 p-0 px-1'
-    const loginIcon = document.createElement('i')
-    loginIcon.className = 'bi bi-person-add p-0 m-0 fs-5'
-    loginButton.appendChild(loginIcon)
+    const input = document.createElement('button')
+    input.className = 'btn btn-outline-primary text-dark rounded-pill p-1 px-3 m-2'
+    const signIn = document.createElement('a')
+    signIn.addEventListener("click", lanciaModaleSignIn)
+    signIn.setAttribute('href', '#')
+    signIn.setAttribute('data-bs-toggle', 'modal')
+    signIn.setAttribute('data-bs-target', '#modalLogin')
+    signIn.innerHTML= `<i class="bi bi-person-add"></i> Registrati`
+    input.appendChild(signIn)
 
     inputDiv.appendChild(input)
-    inputDiv.appendChild(loginButton)
     listItemInputDiv.appendChild(inputDiv)
 
     const listItemUserLi = function(user) {
@@ -129,7 +148,7 @@ dropdownDiv.id = 'navDropLogin'
         userImg.className = 'rounded-circle img-fluid m-0 p-0'
         userImg.src = user.img
         userImg.style.width = '20px'
-    userImg.style.height = '20px'
+        userImg.style.height = '20px'
         listItem.appendChild(userImg)
         const userLi = document.createElement('a')
         userLi.className = 'dropdown-item text-white fs-6 m-0 p-0 customLiHover'
@@ -150,8 +169,6 @@ for (let indiceUtenti = 0; indiceUtenti < arrayUser.length; indiceUtenti++) {
     outerDiv.appendChild(dropdownDiv)
     document.getElementById('navBar').appendChild(outerDiv)
 }
-
-
 
 const login = function(user) {
     console.log("Utente valido:", user)
