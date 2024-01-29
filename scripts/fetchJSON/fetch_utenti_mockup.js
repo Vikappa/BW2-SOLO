@@ -4,8 +4,7 @@ export function fetchJSONUsers() {
     const currentUrl = window.location.href.split('/').pop()
     console.log(currentUrl)
 const urlBiforcato = function () { //Se l'index è hostato su internet l'homepage non ha ritorno
-    console.log("Current url locale " + urlBiforcato)
-    if(urlBiforcato){
+    if(!currentUrl){
         return '../utenti_mockup/utenti_mockup.json'
     } else {
         return 'github.com/vikappa/BW2-SOLO/utenti_mockup/utenti_mockup.json'
