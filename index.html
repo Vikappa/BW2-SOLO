@@ -56,25 +56,123 @@
           <h5 class="modal-title">Benvenuto!</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form>
+        <form id="formRegistraUtente">
           <div class="modal-body p-1">
-            <!-- Input per il nome -->
             <div class="mb-3">
               <label for="nomeUtente" class="form-label p-1 m-0">Nome</label>
               <input type="text" class="form-control" id="nomeNuovoUtente" required>
             </div>
-            
-            <!-- Input per URL immagine del profilo -->
             <div class="mb-3">
               <label for="urlImmagineProfilo" class="form-label">URL Immagine Profilo <span style="font-size: .74rem;" class="my-0 text-secondary">(facoltativo)</span></label>
               <input type="url" class="form-control" id="urlImmagineProfilo">
             </div>
-  
-            <!-- Button Group per le scelte -->
-            
-
-            
           </div>
+          <div class="mb-3">
+            <label class="form-label">Seleziona almeno 3 generi:</label>
+            <div id="buttonGroupScelte" class="btn-group flex-wrap p-2 border border-primary rounded" role="group" aria-label="Scelte obbligatorie">
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta1" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta1">Pop</label>
+              </div>
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta2" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta2">Rap/Hip Ho</label>
+              </div>
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta3" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta3">Reggaeto</label>
+              </div>
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta4" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta4">Rock</label>
+              </div>
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta5" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta5">Dance</label>
+              </div>
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta5" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta5">R&B</label>
+              </div>
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta5" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta5">Alternative</label>
+              </div>
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta5" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta5">Electro</label>
+              </div>
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta5" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta5">Folk</label>
+              </div>
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta5" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta5">Reggae</label>
+              </div>
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta5" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta5">Jazz</label>
+              </div>
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta5" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta5">Country</label>
+              </div>
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta5" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta5">Salsa</label>
+              </div>
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta5" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta5">Classica</label>
+              </div>
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta5" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta5">Film/Videogioch</label>
+              </div>
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta5" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta5">Metal</label>
+              </div>
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta5" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta5">Soul & Fun</label>
+              </div>
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta5" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta5">Bambini</label>
+              </div>
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta5" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta5">Blues</label>
+              </div>
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta5" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta5">Cumbia</label>
+              </div>
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta5" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta5">Musica Africana</label>
+              </div>
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta5" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta5">Musica Asiatica</label>
+              </div>
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta5" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta5">Musica Brasiliana</label>
+              </div>
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta5" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta5">Musica Indiana</label>
+              </div>
+              <div class="col-6 col-md-4 p-1">
+                <input type="checkbox" class="btn-check" id="scelta5" autocomplete="off">
+                <label class="btn btn-primary w-100" for="scelta5">Musica latin</label>
+              </div>
+            </div>
+          </div>
+          
           <div class="modal-footer">
             <button type="submit" class="btn btn-primary">Conferma</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>

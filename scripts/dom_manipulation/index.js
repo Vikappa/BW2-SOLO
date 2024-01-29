@@ -30,6 +30,7 @@ const settaDirezioneDropDown = function () { // Imposta la direzione del dropdow
 
 const registraUtente = function() { // Registra un nuovo utente in localstorage e lancia il metodo login con parametro il nuovo utente
 //Aggiungo il nuovo utente a storagedUsers e lo setto in localstorage
+preventDefalut()
 const nomeNuovoUtente = document.getElementById('nomeNuovoUtente').value
 if(isValidUser(nomeNuovoUtente)){
     const nuovoUtente = new User(nomeNuovoUtente)
@@ -38,10 +39,6 @@ if(isValidUser(nomeNuovoUtente)){
     login(nuovoUtente)
 }
 }   
-
-const lanciaModaleSignIn = function() { 
-
-}
 
 
 // UTILITY
@@ -59,8 +56,6 @@ function isValidUser(userValue) {
         return false
     }
 }
-
-
 
 // DOM MANIPULATION
 
@@ -193,6 +188,9 @@ const updateUser = function (arrayUser) {
 
 // LISTENER DOM
 window.addEventListener('resize', settaDirezioneDropDown)//Cambia la classe dropdown dropstar alla navbar in base alla larghezza dello schermo
+document.addEventListener('DOMContentLoaded', (event) => {
+    document.getElementById('formRegistrazione').addEventListener('submit', registraUtente)
+})
 
 
 // INIZIO ESECUZIONE
