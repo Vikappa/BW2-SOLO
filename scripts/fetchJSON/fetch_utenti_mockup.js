@@ -1,10 +1,10 @@
 import { User } from '../classi/userClass.js'
 export function fetchJSONUsers() {
 
-    const currentUrl = window.location.href.split('/').pop()
+    const currentUrl = window.location.href
     console.log(currentUrl)
 const urlBiforcato = function () { //Se l'index è hostato su internet l'homepage non ha ritorno
-    if(!currentUrl){
+    if(currentUrl === "http://127.0.0.1:5500/"){
         return '../utenti_mockup/utenti_mockup.json'
     } else {
         return 'github.com/vikappa/BW2-SOLO/utenti_mockup/utenti_mockup.json'
