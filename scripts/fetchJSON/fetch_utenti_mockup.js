@@ -6,8 +6,9 @@ export function fetchJSONUsers() {
 const urlBiforcato = function () { //Se l'index è hostato su internet l'homepage non ha ritorno
     if(currentUrl === "http://127.0.0.1:5500/"){
         return '../utenti_mockup/utenti_mockup.json'
-    } else {
-        return 'github.com/vikappa/BW2-SOLO/utenti_mockup/utenti_mockup.json'
+    }
+    if(currentUrl === "https://vikappa.github.io/BW2-SOLO/"){
+        return 'https://vikappa.github.io/BW2-SOLO/utenti_mockup/utenti_mockup.json'
     }
 }
     return fetch(urlBiforcato()) //a seconda che sia in locale o online il json avrà url diversi
