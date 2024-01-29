@@ -189,7 +189,7 @@ const updateUser = function (arrayUser) {
 // LISTENER DOM
 window.addEventListener('resize', settaDirezioneDropDown)//Cambia la classe dropdown dropstar alla navbar in base alla larghezza dello schermo
 document.addEventListener('DOMContentLoaded', (event) => {
-    document.getElementById('formRegistrazione').addEventListener('submit', registraUtente)
+    document.getElementById('formRegistraUtente').addEventListener('submit', registraUtente)
 })
 
 
